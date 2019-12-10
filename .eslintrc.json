@@ -4,7 +4,7 @@
         "commonjs": true,
         "node": true
     },
-    "extends": "prettier",
+    "extends": "eslint:recommended",
     "plugins": [
         "prettier"
       ],

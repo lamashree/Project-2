@@ -1,3 +1,18 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+body {
+  background-image: url("../images/body.jpg"), url("images.jpg");
+  background-size: cover;
+}
+
+h2 {
+  text-align: center;
+}
+img {
+  opacity: 0.8;
+  background-blend-mode: lighten;
+  backdrop-filter: blur(0.9);
+  align-items: stretch;
+}
