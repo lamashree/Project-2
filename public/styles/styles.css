@@ -15,10 +15,15 @@
   padding: 20px;
   position: fixed;
   top: 0;
+  color: #2E8B57;
   text-align: center;
   border-bottom: black;
   border-bottom-style: double;
   z-index: 2;
+}
+
+h4 {
+  text-shadow: 0.5px 0.5px 1px black;
 }
 
 a {
@@ -29,6 +34,7 @@ li {
   list-style: none;
   display: inline-block;
   padding: 0 20px;
+  font-size: 16px;
 }
 
 ul {
@@ -47,9 +53,12 @@ ul {
 }
 
 #sale-title {
-  padding: 150px 0 0 0;
+  position: absolute;
+  top: 300px;
+  right: 10px;
   text-align: center;
-  text-shadow: 0.5px 0.5px 1px ghostwhite;
+  color: gold;
+  text-shadow: 0.5px 0.5px 1px black;
   z-index: 1;
 }
 
