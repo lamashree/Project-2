@@ -1,6 +1,7 @@
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
+var $examplePhoto = $("#example-photo");
 var $submitBtn = $("#submit");
 var $itemList = $("#item-list");
 
@@ -38,6 +39,10 @@ var refreshExamples = function () {
         .text(example.text)
         .attr("href", "/example/" + example.id);
 
+      var $photo = $("<a>")
+        .text("Link to photos: " + example.photo_url)
+        .append($a);
+
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
@@ -71,7 +76,8 @@ var handleFormSubmit = function (event) {
 
   var example = {
     text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+    description: $exampleDescription.val().trim(),
+    photo_url: $examplePhoto.val().trim()
   };
 
   if (!(example.text && example.description)) {
@@ -85,6 +91,7 @@ var handleFormSubmit = function (event) {
 
   $exampleText.val("");
   $exampleDescription.val("");
+  $examplePhoto.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked

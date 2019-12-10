@@ -40,7 +40,7 @@ li {
 }
 
 ul {
-  padding: 10px 0;
+  padding: 10px;
 }
 
 .list-group-item {
@@ -65,6 +65,9 @@ ul {
 }
 
 #item-list {
+  padding: 20px;
   height: 500px;
+  background-color: whitesmoke;
+  border-top: 1px solid black;
   z-index: 1;
 }
