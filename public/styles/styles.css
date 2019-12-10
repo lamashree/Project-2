@@ -45,7 +45,7 @@ ul {
 
 .list-group-item {
   margin: 10px;
-  height: 250px;
+  height: 65px;
   width: 250px;
   display: inline-block;
 }
@@ -70,4 +70,9 @@ ul {
   background-color: whitesmoke;
   border-top: 1px solid black;
   z-index: 1;
+}
+
+.photo {
+  width: 600px;
+  height: auto;
 }
