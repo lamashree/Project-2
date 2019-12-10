@@ -3,17 +3,54 @@
     <div class="col-8 offset-2">
       <div class="card mt-4">
         <div class="card-body">
-          <h5 class="card-title">Example</h5>
-          <p>
-            <strong>ID</strong>: {{example.id}}</p>
-          <p>
-          <p>
-            <strong>Text</strong>: {{example.text}}</p>
-          <p>
-            <strong>Description:</strong> {{example.description}}</p>
-            <a href="/">← Back To Home</a>
+          <h1 class="card-title">Personal Informtions</h1>
+          <hr>
+          <form>
+            <div class="form-group">
+              <strong><label for="firstname">First Name</strong></label>
+              <Input @id="firstname" @type="text" @value={{this.firstName}} @size="90" />
+            </div>
+            <div class="form-group">
+              <strong><label for="lastname">Last Name</strong></label>
+              <Input @id="lastname" @type="text" @value={{this.firstName}} @size="90" />
+            </div>
+            <div class="form-group">
+              <strong><label for="email"> Email address</strong> </label>
+              <Input @id="email" @type="text" @value={{this.email}} @size="90" />
+            </div>
+            <div class="form-group"></div>
+            <strong><label for="password"> Password</strong> </label>
+            <Input @id="password" @type="text" @value={{this.email}} @size="90" />
         </div>
+        <div class="form-group">
+          <strong><label for="inputAddress">Address</strong></label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" id="inputCity">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <select id="inputState" class="form-control">
+              <option selected>Choose...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Zip</label>
+            <input type="text" class="form-control" id="inputZip">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+        <br>
+
+        <a href="/">← Back To Home</a>
+        <hr>
       </div>
     </div>
   </div>
+</div>
 </div>

@@ -3,8 +3,9 @@
 }
 
 body {
-  background-image: url("../images/body.jpg"), url("images.jpg");
+  background-image: url("../images/body.jpg"), url("../images/images.jpg");
   background-size: cover;
+  opacity: 2.0;
 }
 
 h2 {
@@ -15,4 +16,11 @@ img {
   background-blend-mode: lighten;
   backdrop-filter: blur(0.9);
   align-items: stretch;
+}
+.btn-outline-primary{
+  margin-left: -22px;
+}
+.container{
+  background-image: url("../images/download.jpg");
+
 }
