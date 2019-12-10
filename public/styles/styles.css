@@ -16,10 +16,12 @@
   position: fixed;
   top: 0;
   color: #2E8B57;
+  background-color: whitesmoke;
   text-align: center;
   border-bottom: black;
   border-bottom-style: double;
   z-index: 2;
+  opacity: .85;
 }
 
 h4 {
