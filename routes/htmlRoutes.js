@@ -10,14 +10,14 @@ module.exports = function(app) {
       });
     });
   });
+
   app.get("/login", function(req, res) {
-      res.render("login")
+    res.render("login");
   });
+
   app.get("/register", function(req, res) {
-    res.render("register")
-});
-
-
+    res.render("register");
+  });
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
@@ -26,6 +26,11 @@ module.exports = function(app) {
         example: dbExample
       });
     });
+  });
+
+  // Load the create item page
+  app.get("/create-item", function(req, res) {
+    res.render("createItem");
   });
 
   // Render 404 page for any unmatched routes
