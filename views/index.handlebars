@@ -10,28 +10,33 @@
         <h4>{{title}}</h4>
       </div>
       <div class="col-4" id="link">
-        <li><a href="/logout">Logout</a></li>
+        <li><a href="/login">Login</a></li>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="sale-title">
+  <div class="row">
+    <h1>Items for Sale</h1>
+  </div>
+
+  <div class="row">
+    <div id="item-list">
+      <div id="items">
+        <ul>
+          {{#each examples}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="example/{{this.id}}">{{this.text}}</a>
+            <button class="btn btn-warning btn-sm float-right profile">Profile</button>
+            <button class="btn btn-danger btn-sm float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>
 
-  <div class="container" id="sale-title">
-    <h1>Items for Sale</h1>
-  </div>
-</div>
-
-<div id="item-list">
-  <div id="items">
-    <ul>
-      {{#each examples}}
-      <li data-id="{{this.id}}" class="list-group-item">
-        <a href="example/{{this.id}}">{{this.text}}</a>
-        <button class="btn btn-warning btn-sm float-right profile">Profile</button>
-        <button class="btn btn-danger btn-sm float-right delete">ｘ</button>
-      </li>
-      {{/each}}
-    </ul>
-  </div>
 </div>
 
 
