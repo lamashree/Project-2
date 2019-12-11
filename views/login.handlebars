@@ -1,0 +1,44 @@
+<div id="home">
+  <div id="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1>{{msg}}</h1>
+        <h2>Cajarilla Market Place</h2>
+         <hr>
+        <img class="icon" src="images/accossories.jpg" width="400px" height="200px">
+        <span><img class="icon" src= "images/market.jpg" width="400px" height="200px" margin= "10px"></span>
+
+        <form>
+          <div class="form-group">
+            <strong><label for="exampleInputEmail1">Email address</strong></label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <strong><label for="exampleInputPassword1">Password</strong></label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <button type="button" class="btn btn-primary btn-sm" text-align="center">Sign in</button>
+
+          <div class="newMember">
+            <p2>Don't have an account yet</p2>
+            <div class="form-group form-check">
+              <a class="btn btn-outline-primary" href="/example/:id" role="button">Create</a> </div>
+          </div>
+
+        </form>
+        <ul id="example-list" class="list-group">
+          {{#each examples}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="example/{{this.id}}">{{this.text}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
