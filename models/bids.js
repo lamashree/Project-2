@@ -1,46 +1,26 @@
-module.exports = function(sequelize, DataTypes) {
-    var Bids = sequelize.define("bids", {
-      id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          len: [1]
-        },
-        primaryKey: true,
-        autoIncrement: true
-      },
-      bidValue: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          len: [20]
-        }
-      },
-      userId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          len: [20]
-        }
-      },
-      itemId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          len: [20]
-        }
-      },
-      // Timestamps
-      createdAt: Sequelize.DATE,
-      updatedAt: Sequelize.DATE
+module.exports = function (sequelize, DataTypes) {
+  var Bids = sequelize.define("Bids", {
+    bidValue: {
+      type: DataTypes.DECMIAL(10, 2),
+      allowNull: false
+    }
+  });
+
+  Bids.associate = function (models) {
+    Bids.belongsTo(models.Users, {
+      foreignKey: {
+        allowNull: false
+      }
     });
-  
-    Bids.associate = function(models) {
-      Bids.belongsTo(models.Users, {
-        foreignKey: {
-          allowNull: false
-        }
-      });
-    };
-    return Bids;
-  };  
+  };
+
+  Bids.associate = function (models) {
+    Bids.belongsTo(models.Items, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
+  return Bids;
+};

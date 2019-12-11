@@ -1,87 +1,51 @@
-module.exports = function(sequelize, DataTypes) {
-    var Users = sequelize.define("users", {
-      id: {
-        type: DataTypes.INT,
-        allowNull: false,
-        validate: {
-          len: [1]
-        },
-        primaryKey: true,
-        autoIncrement: true
-      },
-      firstName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [50]
-        }
-      },
-      lastName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [50]
-        }
-      },
-      emalAddress: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [50]
-        }
-      },
-      userPassword: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [50]
-        }
-      },
-      addressStreet: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [50]
-        }
-      },
-      addressState: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [50]
-        }
-      },
-      addressZipcode: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          len: [50]
-        }
-      },
-      phoneNumber: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          len: [20]
-        }
-      },
-      itemId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          len: [20]
-        }
-      },
-      // Timestamps
-      createdAt: Sequelize.DATE,
-      updatedAt: Sequelize.DATE
+module.exports = function (sequelize, DataTypes) {
+  var Users = sequelize.define("Users", {
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    emailAddress: {
+      type: DataTypes.STRING
+    },
+    userPassword: {
+      type: DataTypes.STRING
+    },
+    addressStreet: {
+      type: DataTypes.STRING
+    },
+    addressState: {
+      type: DataTypes.STRING
+    },
+    addressZipcode: {
+      type: DataTypes.STRING
+    },
+    phoneNumber: {
+      type: DataTypes.STRING
+    },
+    itemId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [20]
+      }
+    }
+  });
+
+  Users.associate = function (models) {
+    Users.hasMany(models.Items, {
+      onDelete: "cascade"
     });
-    Users.associate = function(models) {
-      Users.belongsTo(models.Users, {
-        foreignKey: {
-          allowNull: false
-        }
-      });
-    };
-    return Bids;
-  };  
+  };
+
+  return Users;
+};
