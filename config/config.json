@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "yourRootPassword",
-    "database": "burgers_db",
+    "database": "cajarilla_db",
     "host": "localhost",
     "dialect": "mysql"
   },
