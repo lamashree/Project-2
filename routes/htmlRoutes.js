@@ -20,6 +20,11 @@ module.exports = function(app) {
     });
   });
 
+  // Load the create item page
+  app.get("/create-item", function(req, res) {
+    res.render("createItem");
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
