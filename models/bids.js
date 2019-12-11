@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
   var Bids = sequelize.define("Bids", {
     bidValue: {
-      type: DataTypes.DECMIAL(10, 2),
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false
     }
   });

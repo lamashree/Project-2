@@ -1,7 +1,4 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $examplePhoto = $("#example-photo");
 var $submitBtn = $("#submit");
 var $itemList = $("#item-list");
 
@@ -34,19 +31,19 @@ var API = {
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function () {
   API.getExamples().then(function (data) {
-    var $examples = data.map(function (example) {
+    var $items = data.map(function (example) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(items.itemName)
+        .attr("href", "/example/" + items.id);
 
       var $photo = $("<a>")
-        .text("Link to photos: " + example.photo_url)
+        .text("Link to photos: " + items.itemPhoto)
         .append($a);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": items.id
         })
         .append($a);
 
@@ -65,7 +62,7 @@ var refreshExamples = function () {
     });
 
     $itemList.empty();
-    $itemList.append($examples);
+    $itemList.append($items);
   });
 };
 
@@ -73,14 +70,18 @@ var refreshExamples = function () {
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function (event) {
   event.preventDefault();
+  console.log("form is working");
 
   var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim(),
-    photo_url: $examplePhoto.val().trim()
+    itemName: $("#item-name").val(),
+    itemCategory: $("#item-category").val().trim(),
+    itemDescription: $("#item-description").val(),
+    itemState: $("#item-state").val(),
+    itemPrice: $("#item-price").val(),
+    itemPhoto: $("#item-photo").val().trim()
   };
 
-  if (!(example.text && example.description)) {
+  if (!(example.itemName && example.itemDescription)) {
     alert("You must enter an example text and description!");
     return;
   }
@@ -89,9 +90,12 @@ var handleFormSubmit = function (event) {
     refreshExamples();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
-  $examplePhoto.val("");
+  $("#item-name").val("");
+  $("#item-category").val("");
+  $("#item-description").val("");
+  $("#item-state").val("");
+  $("#item-price").val("");
+  $("#item-photo").val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked

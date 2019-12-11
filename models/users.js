@@ -31,13 +31,6 @@ module.exports = function (sequelize, DataTypes) {
     },
     phoneNumber: {
       type: DataTypes.STRING
-    },
-    itemId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        len: [20]
-      }
     }
   });
 

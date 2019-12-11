@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  var Items = sequelize.define("items", {
+  var Items = sequelize.define("Items", {
     itemName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,6 +14,10 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       }
     },
+    itemDescription: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
     itemState: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -22,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     itemPrice: {
-      type: DataTypes.DECMIAL(10, 2),
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false
     },
     itemPhoto: {
@@ -32,11 +36,10 @@ module.exports = function (sequelize, DataTypes) {
 
   Items.associate = function (models) {
     Items.belongsTo(models.Users, {
-      foreignKey: {
-        allowNull: false
-      }
+      foreignKey: "UserId",
+      allowNull: false
     });
   };
 
   return Items;
-};  
+};
