@@ -31,13 +31,21 @@ module.exports = function (sequelize, DataTypes) {
     },
     itemPhoto: {
       type: DataTypes.TEXT
+    },
+    UserId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Users",
+        key: "id"
+      }
     }
   });
 
   Items.associate = function (models) {
     Items.belongsTo(models.Users, {
-      foreignKey: "UserId",
-      allowNull: false
+      foreignKey: {
+        allowNull: false
+      }
     });
   };
 
