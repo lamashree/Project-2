@@ -4,37 +4,37 @@ var $itemList = $("#item-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function (example) {
+  saveItem: function (item) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/items",
+      data: JSON.stringify(item)
     });
   },
-  getExamples: function () {
+  getItems: function () {
     return $.ajax({
-      url: "api/examples",
+      url: "api/items",
       type: "GET"
     });
   },
-  deleteExample: function (id) {
+  deleteItem: function (id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/items/" + id,
       type: "DELETE"
     });
   }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function () {
-  API.getExamples().then(function (data) {
-    var $items = data.map(function (example) {
+var refreshItems = function () {
+  API.getItems().then(function (data) {
+    var $items = data.map(function (item) {
       var $a = $("<a>")
         .text(items.itemName)
-        .attr("href", "/example/" + items.id);
+        .attr("href", "/item/" + items.id);
 
       var $photo = $("<a>")
         .text("Link to photos: " + items.itemPhoto)
@@ -72,7 +72,7 @@ var handleFormSubmit = function (event) {
   event.preventDefault();
   console.log("form is working");
 
-  var example = {
+  var item = {
     itemName: $("#item-name").val(),
     itemCategory: $("#item-category").val().trim(),
     itemDescription: $("#item-description").val(),
@@ -81,13 +81,13 @@ var handleFormSubmit = function (event) {
     itemPhoto: $("#item-photo").val().trim()
   };
 
-  if (!(example.itemName && example.itemDescription)) {
-    alert("You must enter an example text and description!");
+  if (!(item.itemName && item.itemDescription)) {
+    alert("You must enter an item text and description!");
     return;
   }
 
-  API.saveExample(example).then(function () {
-    refreshExamples();
+  API.saveItem(item).then(function () {
+    refreshItems();
   });
 
   $("#item-name").val("");
@@ -105,8 +105,8 @@ var handleDeleteBtnClick = function () {
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function () {
-    refreshExamples();
+  API.deleteItem(idToDelete).then(function () {
+    refreshItems();
   });
 };
 
