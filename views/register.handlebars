@@ -1,54 +1,99 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
+    <div class="col">
+      <div class="card mb-4">
         <div class="card-body">
-          <h1 class="card-title">Personal Informtions</h1>
+          <h1 class="card-title">Register</h1>
           <hr>
           <form>
             <div class="form-group">
-              <strong><label for="firstname">First Name</strong></label>
-              <Input @id="firstname" @type="text" @value={{this.firstName}} @size="90" />
+              <label for="first-name">First Name</label>
+              <input type="text" class="form-control" id="first-name" placeholder="">
             </div>
             <div class="form-group">
-              <strong><label for="lastname">Last Name</strong></label>
-              <Input @id="lastname" @type="text" @value={{this.firstName}} @size="90" />
+              <label for="last-name">Last Name</label>
+              <input type="text" class="form-control" id="last-name" placeholder="">
             </div>
             <div class="form-group">
-              <strong><label for="email"> Email address</strong> </label>
-              <Input @id="email" @type="text" @value={{this.email}} @size="90" />
+              <label for="email">Email</label>
+              <input type="text" class="form-control" id="email" placeholder="">
             </div>
-            <div class="form-group"></div>
-            <strong><label for="password"> Password</strong> </label>
-            <Input @id="password" @type="text" @value={{this.email}} @size="90" />
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="text" class="form-control" id="password" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="address">Street Address</label>
+              <input type="text" class="form-control" id="address" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city">
+            </div>
+            <div class="form-group">
+              <label for="state">State</label>
+              <select id="state" class="form-control">
+                <option selected>Choose...</option>
+                <option>AK</option>
+                <option>AL</option>
+                <option>AR</option>
+                <option>AZ</option>
+                <option>CA</option>
+                <option>CO</option>
+                <option>CT</option>
+                <option>DE</option>
+                <option>FL</option>
+                <option>GA</option>
+                <option>HI</option>
+                <option>ID</option>
+                <option>IL</option>
+                <option>IN</option>
+                <option>IA</option>
+                <option>KS</option>
+                <option>KY</option>
+                <option>LA</option>
+                <option>MA</option>
+                <option>MD</option>
+                <option>ME</option>
+                <option>MI</option>
+                <option>MN</option>
+                <option>MS</option>
+                <option>MO</option>
+                <option>MT</option>
+                <option>NE</option>
+                <option>NV</option>
+                <option>NH</option>
+                <option>NJ</option>
+                <option>NM</option>
+                <option>NY</option>
+                <option>NC</option>
+                <option>ND</option>
+                <option>OH</option>
+                <option>OK</option>
+                <option>OR</option>
+                <option>PA</option>
+                <option>RI</option>
+                <option>SC</option>
+                <option>SD</option>
+                <option>TN</option>
+                <option>TX</option>
+                <option>UT</option>
+                <option>VT</option>
+                <option>VA</option>
+                <option>WA</option>
+                <option>WV</option>
+                <option>WI</option>
+                <option>WY</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="zip">Zip</label>
+              <input type="text" class="form-control" id="zip">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </form>
+          <a href="/">← Back To Home</a>
         </div>
-        <div class="form-group">
-          <strong><label for="inputAddress">Address</strong></label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="">
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <input type="text" class="form-control" id="inputCity">
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip">
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
-        </form>
-        <br>
-
-        <a href="/">← Back To Home</a>
-        <hr>
       </div>
     </div>
   </div>
