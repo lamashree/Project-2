@@ -29,8 +29,8 @@ module.exports = function(app) {
   });
 
   // Load the create item page
-  app.get("/create-item", function(req, res) {
-    res.render("createItem");
+  app.get("/post-item", function(req, res) {
+    res.render("postItem");
   });
 
   // Render 404 page for any unmatched routes
