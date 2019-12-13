@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Items = sequelize.define("Items", {
     itemName: {
       type: DataTypes.STRING,
@@ -32,22 +32,22 @@ module.exports = function (sequelize, DataTypes) {
     itemPhoto: {
       type: DataTypes.TEXT
     },
-    UserId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "Users",
-        key: "id"
+    userName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
       }
     }
   });
 
-  Items.associate = function (models) {
-    Items.belongsTo(models.Users, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Items.associate = function (models) {
+  //   Items.belongsTo(models.Users, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
   return Items;
 };
