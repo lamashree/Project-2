@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Users = sequelize.define("Users", {
     id: {
       type: DataTypes.INTEGER,
@@ -39,7 +39,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  // Users.associate = function (models) {
+  // Users.associate = function(models) {
   //   Users.hasMany(models.Items, {
   //     onDelete: "cascade"
   //   });

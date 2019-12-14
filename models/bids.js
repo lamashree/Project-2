@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Bids = sequelize.define("Bids", {
     bidValue: {
       type: DataTypes.DECIMAL(10, 2),
@@ -28,7 +28,7 @@ module.exports = function (sequelize, DataTypes) {
   //   });
   // };
 
-  Bids.associate = function (models) {
+  Bids.associate = function(models) {
     Bids.belongsTo(models.Items, {
       foreignKey: {
         allowNull: false
