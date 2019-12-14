@@ -41,6 +41,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+  Items.associate = function(models) {
+    Items.hasMany(models.Bids, {
+      onDelete: "cascade"
+    });
+  };
+
   // Items.associate = function (models) {
   //   Items.belongsTo(models.Users, {
   //     foreignKey: {

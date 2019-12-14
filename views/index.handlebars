@@ -2,14 +2,8 @@
   <div class="container-fluid" id="nav">
     <div class="row">
       <div class="col-4" id="link">
-        <li><a href="/">Home</a></li>
         <li><a href="/post-item">Post an Item</a></li>
         <li><a href="/profiles">User Profiles</a></li>
-      </div>
-      <div class="col-4">
-        <h4>{{title}}</h4>
-      </div>
-      <div class="col-4" id="link">
         <li><a href="/login">Login</a></li>
       </div>
     </div>
@@ -23,17 +17,16 @@
 
   <div class="row">
     <div id="item-list">
-      <div id="items">
-        <ul>
-          {{#each Items}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-warning btn-sm float-right profile">Profile</button>
-            <button class="btn btn-danger btn-sm float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
+      <ul>
+        {{#each Items}}
+        <li data-id="{{this.id}}" class="list-group-item">
+          <a href="example/{{this.id}}">{{this.itemName}}</a>
+          <button class="btn btn-warning btn-sm float-right profile">Profile</button>
+          <button class="btn btn-danger btn-sm float-right delete">ｘ</button>
+          <img src={{this.itemPhoto}} width="100px">
+        </li>
+        {{/each}}
+      </ul>
     </div>
   </div>
 

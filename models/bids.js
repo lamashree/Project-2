@@ -10,6 +10,13 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1]
       }
+    },
+    ItemId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Items",
+        key: "id"
+      }
     }
   });
 
