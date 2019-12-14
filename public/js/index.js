@@ -1,5 +1,4 @@
 // Get references to page elements
-var $submitBtn = $("#submit");
 var $itemList = $("#item-list");
 
 // The API object contains methods for each kind of request we'll make
@@ -31,7 +30,7 @@ var API = {
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshItems = function() {
   API.getItems().then(function(data) {
-    var $items = data.map(function(item) {
+    var $items = data.map(function(items) {
       var $a = $("<a>")
         .text(items.itemName)
         .attr("href", "/item/" + items.id);

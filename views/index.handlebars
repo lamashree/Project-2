@@ -1,15 +1,9 @@
 <div id="home">
   <div class="container-fluid" id="nav">
     <div class="row">
-      <div class="col-4" id="link">
-        <li><a href="/">Home</a></li>
+      <div class="col-4" id="links">
         <li><a href="/post-item">Post an Item</a></li>
         <li><a href="/profiles">User Profiles</a></li>
-      </div>
-      <div class="col-4">
-        <h4>{{title}}</h4>
-      </div>
-      <div class="col-4" id="link">
         <li><a href="/login">Login</a></li>
       </div>
     </div>
@@ -30,6 +24,7 @@
             <a href="example/{{this.id}}">{{this.text}}</a>
             <button class="btn btn-warning btn-sm float-right profile">Profile</button>
             <button class="btn btn-danger btn-sm float-right delete">ｘ</button>
+            <img src={{this.itemPhoto}} width="100px">
           </li>
           {{/each}}
         </ul>
