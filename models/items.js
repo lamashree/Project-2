@@ -1,5 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
   var Items = sequelize.define("Items", {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     itemName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -40,6 +45,12 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+
+  Items.associate = function (models) {
+    Items.hasMany(models.Bids, {
+      onDelete: "cascade"
+    });
+  };
 
   // Items.associate = function (models) {
   //   Items.belongsTo(models.Users, {
