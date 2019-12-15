@@ -8,17 +8,15 @@
           <p><strong>ID</strong>: {{example.id}}</p>
           <p><strong>Text</strong>: {{example.text}}</p>
           <p><strong>Description:</strong> {{example.description}}</p>
-          <img class="photo" src={{example.photo_url}}>
-          <div id="map" width="500px" height="700px" background="blue">google map
-            <div id="infowindow-content">
-                       <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+          <img class="hoto" src={{example.photo_url}}>
 
-              <span id="place-name" class="title"></span><br>
-              <strong>Place ID:</strong> <span id="place-id"></span><br>
-              <span id="place-address"></span>
-            </div>
+          <div id="map" style="width: 320px; height: 480px;"></div>
+          <div>
+            <input id="address" type="textbox" value="seattle, WA">
+            <input type="button" value="Encode" onclick="codeAddress()">
           </div>
-         <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+          <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
 
           <p><a href="/">← Back To Home</a></p>
         </div>
@@ -26,8 +24,13 @@
     </div>
   </div>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTbS7SNpGMxfTjkNT-8yiuRJ4S7QZ51K4&callback=initMap" async
-  defer></script>
+
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script async defer
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTbS7SNpGMxfTjkNT-8yiuRJ4S7QZ51K4&callback=initMap"
+async defer></script>
 <script src="../js/maps.js"></script>
 
 <html>
