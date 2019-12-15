@@ -15,23 +15,21 @@
     <h1>Items for Sale</h1>
   </div>
 
-  <div class="row">
-    <div id="item-list">
-      <div id="items">
-        <ul>
-          {{#each Items}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-warning btn-sm float-right profile">Profile</button>
-            <button class="btn btn-danger btn-sm float-right delete">ｘ</button>
-            <img src={{this.itemPhoto}} width="100px">
-          </li>
-          {{/each}}
-        </ul>
+  <div class="row row-cols-1 row-cols-md-3" id="item-list">
+    {{#each Items}}
+    <div class="col mb-4">
+      <div class="card border-dark mb-3">
+        <img src={{this.itemPhoto}} class="card-img-top" alt="item-photo" height="200px">
+        <div class="card-body">
+          <h5 class="card-title"><a href="item/{{this.id}}">{{this.itemName}}</a></h5>
+          <p class="card-text">{{this.itemDescription}}</p>
+        </div>
+        <a href="#" button class="btn btn-warning btn-sm profile">Profile</a>
+        <button class="btn btn-danger btn-sm delete">x</a>
       </div>
     </div>
+    {{/each}}
   </div>
-
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
