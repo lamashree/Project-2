@@ -4,16 +4,29 @@
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">Item</h5>
-          <p><strong>ID</strong>: {{Items.id}}</p>
+          <p><strong>ID</strong>: <span id="item_id">{{Items.id}}</span></p>
           <p><strong>Name</strong>: {{Items.itemName}}</p>
           <p><strong>Category</strong>: {{Items.itemCategory}}</p>
           <p><strong>State</strong>: {{Items.itemState}}</p>
           <p><strong>Price</strong>: {{Items.itemPrice}}</p>
           <p><strong>Description:</strong> {{Items.itemDescription}}</p>
+<<<<<<< HEAD
           <img class="photo" src={{Items.itemPhoto}} width="300px">
+=======
+          <br>
+          <br>
+          <p>Please enter your username.</p>
+          <input type="text" id="bid_username"><br>
+          <p>Please enter your bid.</p>
+          <input type="text" id="newBid">
+          <button type="submit" id="submitBid" class="btn btn-primary"> Submit Bid </button>
+          <img class="photo" src={{Items.itemPhoto}}>
+>>>>>>> 63efea8fa440b8abb01a91e11441163e9623a823
           <p><a href="/">← Back To Home</a></p>
         </div>
       </div>
     </div>
   </div>
 </div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/bid.js"></script>

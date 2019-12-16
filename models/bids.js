@@ -19,15 +19,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-
-  // Bids.associate = function(models) {
-  //   Bids.belongsTo(models.Users, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
-
   Bids.associate = function(models) {
     Bids.belongsTo(models.Items, {
       foreignKey: {

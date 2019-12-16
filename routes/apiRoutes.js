@@ -21,4 +21,11 @@ module.exports = function(app) {
       res.json(dbItem);
     });
   });
+  
+  // Create a new bid
+  app.post("/api/bids", function(req, res) {
+    db.Bids.create(req.body).then(function(dbItem) {
+      res.json(dbItem);
+    });
+  });
 };
