@@ -1,15 +1,9 @@
 <div id="home">
   <div class="container-fluid" id="nav">
-    <div class="row">
-<<<<<<< HEAD
-      <div class="col-4" id="links">
-=======
-      <div class="col-4" id="link">
->>>>>>> 99afc5f29df014c895e07a9794d7fae3e9d19398
-        <li><a href="/post-item">Post an Item</a></li>
-        <li><a href="/profiles">User Profiles</a></li>
-        <li><a href="/login">Login</a></li>
-      </div>
+    <div class="row" id="link">
+      <li><a href="/post-item">Post an Item</a></li>
+      <li><a href="/profiles">User Profiles</a></li>
+      <li><a href="/login">Login</a></li>
     </div>
   </div>
 </div>
@@ -18,38 +12,22 @@
   <div class="row">
     <h1>Items for Sale</h1>
   </div>
+</div>
 
-<<<<<<< HEAD
-  <div class="row row-cols-1 row-cols-md-3" id="item-list">
+<div class="container">
+  <div class="card-columns" id="item-list">
     {{#each Items}}
-    <div class="col mb-4">
-      <div class="card border-dark mb-3">
-        <img src={{this.itemPhoto}} class="card-img-top" alt="item-photo" height="200px">
-        <div class="card-body">
-          <h5 class="card-title"><a href="item/{{this.id}}">{{this.itemName}}</a></h5>
-          <p class="card-text">{{this.itemDescription}}</p>
-        </div>
+    <div class="card">
+      <img src={{this.itemPhoto}} class="card-img-top" alt="item-photo" style="max-width: 200px">
+      <div class="card-body">
+        <h5 class="card-title"><a href="item/{{this.id}}">{{this.itemName}}</a></h5>
+        <p class="card-text">{{this.itemDescription}}</p>
         <a href="#" button class="btn btn-warning btn-sm profile">Profile</a>
         <button class="btn btn-danger btn-sm delete">x</a>
       </div>
-=======
-  <div class="row">
-    <div id="item-list">
-      <ul>
-        {{#each Items}}
-        <li data-id="{{this.id}}" class="list-group-item">
-          <a href="example/{{this.id}}">{{this.itemName}}</a>
-          <button class="btn btn-warning btn-sm float-right profile">Profile</button>
-          <button class="btn btn-danger btn-sm float-right delete">ｘ</button>
-          <img src={{this.itemPhoto}} width="100px">
-        </li>
-        {{/each}}
-      </ul>
->>>>>>> 99afc5f29df014c895e07a9794d7fae3e9d19398
     </div>
     {{/each}}
   </div>
 </div>
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
