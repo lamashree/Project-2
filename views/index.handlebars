@@ -1,7 +1,11 @@
 <div id="home">
   <div class="container-fluid" id="nav">
     <div class="row">
+<<<<<<< HEAD
       <div class="col-4" id="links">
+=======
+      <div class="col-4" id="link">
+>>>>>>> 99afc5f29df014c895e07a9794d7fae3e9d19398
         <li><a href="/post-item">Post an Item</a></li>
         <li><a href="/profiles">User Profiles</a></li>
         <li><a href="/login">Login</a></li>
@@ -15,6 +19,7 @@
     <h1>Items for Sale</h1>
   </div>
 
+<<<<<<< HEAD
   <div class="row row-cols-1 row-cols-md-3" id="item-list">
     {{#each Items}}
     <div class="col mb-4">
@@ -27,6 +32,20 @@
         <a href="#" button class="btn btn-warning btn-sm profile">Profile</a>
         <button class="btn btn-danger btn-sm delete">x</a>
       </div>
+=======
+  <div class="row">
+    <div id="item-list">
+      <ul>
+        {{#each Items}}
+        <li data-id="{{this.id}}" class="list-group-item">
+          <a href="example/{{this.id}}">{{this.itemName}}</a>
+          <button class="btn btn-warning btn-sm float-right profile">Profile</button>
+          <button class="btn btn-danger btn-sm float-right delete">ｘ</button>
+          <img src={{this.itemPhoto}} width="100px">
+        </li>
+        {{/each}}
+      </ul>
+>>>>>>> 99afc5f29df014c895e07a9794d7fae3e9d19398
     </div>
     {{/each}}
   </div>
