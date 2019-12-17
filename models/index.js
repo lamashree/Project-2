@@ -19,6 +19,19 @@ if (config.use_env_variable) {
   );
 }
 
+// const Op = Sequelize.Op;
+// Post.findAll({
+//   where: {
+//     authorId: 2
+//   }
+// });
+
+// var getUser = function (req, res) {
+//   User.findAll().success(function (users) {
+//      res.send(users);
+//   });
+// };
+
 fs.readdirSync(__dirname)
   .filter(function(file) {
     return (

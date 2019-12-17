@@ -1,5 +1,10 @@
-var db = require("../models");
+// var db = require("../models");
 
+// Post.findAll({
+//   where: {
+//     authorId: 2
+//   }
+// });
 module.exports = function(app) {
   // Get all examples
   app.get("/api/examples", function(req, res) {

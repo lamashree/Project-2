@@ -28,6 +28,29 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
+var io = require('socket.io').listen(server);
+var server = require('http').Server(app);
+// var io = require('socket.io')(server);
+var users = { }
+// var io = require('socket.io')(3000);
+// var http = require("http");
+io.on("connection", socket =>{
+    // socket.emit("chat-message", "Hello")
+    socket.on("new-user", name =>{
+        users[socket.id] - name
+        socket.broadcast.emit("user-connected")
+    })
+  
+    socket.on("sent-chat-message", message)
+    socket.broadcast.emit("chat-message", {message:message, name:user[socket.id]})
+
+    socket.on("disconnect", () =>{
+        socket.broadcast.emit("user-disconnected", users[socket.id])
+       delete user[socket.id]
+
+    })
+
+})
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

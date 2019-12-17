@@ -19,6 +19,10 @@ module.exports = function(app) {
     res.render("register");
   });
 
+  app.get("/chat", function(req, res) {
+    res.render("chat");
+  });
+
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(
