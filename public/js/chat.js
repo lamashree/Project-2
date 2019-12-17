@@ -1,5 +1,5 @@
 console.log("this is working")
-var io = require('socket.io-client');
+// var io = require('socket.io-client');
 
 var socket = io("http://localhost:3000")
 var messageForm = document.getElementById("sent-container")
