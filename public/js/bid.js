@@ -19,11 +19,17 @@ var putBid = function(bid) {
   });
 };
 
+var getItem = function(id) {
+  return $.ajax({
+    url: "/api/item/" + id,
+    type: "GET"
+  });
+};
+
 // handleBidSubmit is called whenever we submit a new bid to the database.
 // Save the new bid to the db and refresh the list
 var handleBidSubmit = function(event) {
   event.preventDefault();
-  console.log("form is working");
 
   var item = {
     bidValue: $("#newBid")
@@ -35,10 +41,23 @@ var handleBidSubmit = function(event) {
     ItemId: $("#item_id")[0].innerHTML
   };
 
-  putBid(item).then(function() {
-    refreshBids();
+  getItem(item.ItemId).then(function(data) {
+    var bidderName = item.userName;
+    var posterName = data.userName;
+
+    // If a bidder's username does not match the username of the owner they can bid on the item
+    if (bidderName !== posterName) {
+      putBid(item).then(function() {
+        refreshBids();
+        $("#bid_username").val("");
+        $("#newBid").val("");
+      });
+    } else {
+      alert(
+        "You are the owner of this item and therefore cannot bid on this item."
+      );
+    }
   });
-  // location.reload();
 };
 
 function refreshBids() {

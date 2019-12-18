@@ -86,7 +86,6 @@ var deleteButton = function() {
     .parent()
     .attr("data-id");
 
-  console.log(deleteId);
   API.deleteItem(deleteId).then(function() {
     refreshItems();
   });
