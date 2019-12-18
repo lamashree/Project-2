@@ -23,6 +23,8 @@ var handleItemSubmit = function(event) {
   var category = $("#item-category").val();
   var state = $("#item-state").val();
   var price = $("#item-price").val().trim();
+  var street = $("#item-street").val().trim();
+  var userState = $("#item-user-state").val();
   var photo = $("#item-photo").val().trim();
   var user = $("#item-username").val().trim();
 
@@ -44,6 +46,8 @@ var handleItemSubmit = function(event) {
       itemDescription: description,
       itemState: state,
       itemPrice: price,
+      addressStreet: street,
+      addressState: userState,
       itemPhoto: photo,
       userName: user
     };
