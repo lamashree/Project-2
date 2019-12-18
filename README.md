@@ -32,4 +32,6 @@ follow following steps for Installation of app in your local machine.
 - **Stella Kim**
 - **Eric Choi**
 
+## Motivations for building Application
+After our team brainstroming session we came in conclusion to build Cajarilla online Marketplace. we all do online purchasing, ordering, and searching for the product that we need. so, as our team thought why not developing something that already exist and has large scope in the market. This application have bullied targeting to people of the society. 
 
