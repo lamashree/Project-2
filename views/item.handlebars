@@ -23,5 +23,17 @@
     </div>
   </div>
 </div>
+<div class="container" id="bid-list">
+  {{#each Bids}}
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{this.userName}}</h5>
+        <p class="card-text my-0">${{this.bidValue}}</p>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/bid.js"></script>
