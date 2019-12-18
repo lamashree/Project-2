@@ -19,7 +19,7 @@
     {{#each Items}}
     <div class="card" style="max-width: 250px">
       <img src={{this.itemPhoto}} class="card-img-top" alt="item-photo" style="max-width: auto">
-      <div class="card-body">
+      <div class="card-body" data-id="{{this.id}}">
         <h5 class="card-title"><a href="item/{{this.id}}">{{this.itemName}}</a></h5>
         <p class="card-text my-0">${{this.itemPrice}}</p>
         <p class="card-text text-muted"><i>{{this.itemCategory}}</i></p>

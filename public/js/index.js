@@ -1,18 +1,5 @@
-// Get references to page elements
-var $itemList = $("#item-list");
-
-// The API object contains methods for each kind of request we'll make
+// API methods
 var API = {
-  saveItem: function(item) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/items",
-      data: JSON.stringify(item)
-    });
-  },
   getItems: function() {
     return $.ajax({
       url: "api/items",
@@ -21,61 +8,89 @@ var API = {
   },
   deleteItem: function(id) {
     return $.ajax({
-      url: "api/items/" + id,
+      url: "api/item/" + id,
       type: "DELETE"
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
+// Create function to retrieve new items from the DB and repopulate the list
 var refreshItems = function() {
   API.getItems().then(function(data) {
-    var $items = data.map(function(items) {
-      var $a = $("<a>")
-        .text(items.itemName)
-        .attr("href", "/item/" + items.id);
+    var items = data.map(function(item) {
+      var card = $("<div>").attr({
+        class: "card",
+        style: "max-width: 250px"
+      });
 
-      var $photo = $("<a>")
-        .text("Link to photos: " + items.itemPhoto)
-        .append($a);
+      var imgURL = item.itemPhoto;
+      var image = $("<img>").attr({
+        src: imgURL,
+        class: "card-img-top",
+        alt: "item-photo",
+        style: "max-width: auto"
+      });
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": items.id
-        })
-        .append($a);
+      var cardBody = $("<div>").attr({
+        class: "card-body",
+        "data-id": item.id
+      });
 
-      var $profile = $("<button>")
-        .addClass("btn btn-warning float-right profile")
+      var cardText = $("<a>")
+        .text(item.itemName)
+        .attr("href", "/item/" + item.id);
+
+      var cardTitle = $("<h5>")
+        .addClass("card-title")
+        .append(cardText);
+
+      var price = $("<p>")
+        .text(item.itemPrice)
+        .addClass("card-text my-0");
+
+      var italics = $("<i>").text(item.itemCategory);
+
+      var category = $("<p>")
+        .addClass("card-text text-muted")
+        .append(italics);
+
+      var profileBtn = $("<button>")
+        .addClass("btn btn-warning btn-sm profile")
         .text("Profile");
 
-      var $delete = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+      var deleteBtn = $("<button>")
+        .addClass("btn btn-danger btn-sm delete")
+        .text("x");
 
-      $li.append($profile);
-      $li.append($delete);
+      cardBody.append(cardTitle);
+      cardBody.append(price);
+      cardBody.append(category);
+      cardBody.append(profileBtn);
+      cardBody.append(deleteBtn);
+      card.append(image);
+      card.append(cardBody);
 
-      return $li;
+      return card;
     });
 
-    $itemList.empty();
-    $itemList.append($items);
+    $("#item-list").empty();
+    $("#item-list").append(items);
   });
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
+// Delete function to delete an item when button is clicked
+// Removes the item from the DB and refreshes the list
+var deleteButton = function() {
+  // console.log($(this).parent());
+  var deleteId = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteItem(idToDelete).then(function() {
+  console.log(deleteId);
+  API.deleteItem(deleteId).then(function() {
     refreshItems();
   });
 };
 
-// Add event listeners to the submit and delete buttons
-$itemList.on("click", ".delete", handleDeleteBtnClick);
+// Add event listener for the delete button
+$("#item-list").on("click", ".delete", deleteButton);
