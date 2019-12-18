@@ -22,7 +22,7 @@ var putBid = function(bid) {
 
 var getItem = function(id) {
   return $.ajax({
-    url: "api/item/" + id,
+    url: "/api/item/" + id,
     type: "GET"
   });
 };
@@ -42,13 +42,21 @@ var handleBidSubmit = function(event) {
     ItemId: $("#item_id")[0].innerHTML
   };
 
-  currentBidder = $("#bid_username").val();
-  console.log(currentBidder);
-
-  putBid(item).then(function() {
-    refreshBids();
+  getItem(item.ItemId).then(function(data) {
+    var bidderName = item.userName;
+    var posterName = data.userName;
+    if (bidderName !== posterName) {
+      putBid(item).then(function() {
+        refreshBids();
+        $("#bid_username").val("");
+        $("#newBid").val("");
+      });
+    } else {
+      alert(
+        "You are the owner of this item and therefore cannot bid on this item."
+      );
+    }
   });
-  // location.reload();
 };
 
 function refreshBids() {
@@ -72,10 +80,6 @@ function refreshBids() {
     $bidList.empty();
     $bidList.append($bids);
   });
-}
-
-function checkBidder() {
-
 }
 
 $(document).ready(function() {
