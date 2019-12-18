@@ -3,14 +3,23 @@
         <div class="col">
             <h1>Post A New Item</h1>
             <form>
+                <div class="alert-div" id="name-alert"></div>
                 <div class="form-group">
                     <label for="item-name">Item Name</label>
                     <input type="text" class="form-control" id="item-name"
                         placeholder="Enter a name for your item">
                 </div>
+                <div class="alert-div" id="description-alert"></div>
+                <div class="form-group">
+                    <label for="item-description">Item Description</label>
+                    <input type="text" class="form-control" id="item-description"
+                        placeholder="Enter a description for your item">
+                </div>
+                <div class="alert-div" id="category-alert"></div>
                 <div class="form-group">
                     <label for="item-category">Item Category</label>
                     <select class="form-control" id="item-category">
+                        <option selected>Select Category...</option>
                         <option>Antiques</option>
                         <option>Arts and Crafts</option>
                         <option>Audio</option>
@@ -43,27 +52,40 @@
                         <option>Video Games</option>
                     </select>
                 </div>
+                <div class="alert-div" id="state-alert"></div>
                 <div class="form-group">
                     <label for="item-state">Item State</label>
                     <select class="form-control" id="item-state">
+                        <option selected>Select Item State...</option>
                         <option>New</option>
                         <option>Gently Used</option>
                         <option>Used</option>
                         <option>Worn</option>
                     </select>
                 </div>
+                <div class="alert-div" id="price-alert"></div>
                 <div class="form-group">
                     <label for="item-price">Item Price</label>
                     <input type="text" class="form-control" id="item-price"
                         placeholder="Enter a price for your item">
                 </div>
+                <div class="alert-div" id="photo-alert"></div>
                 <div class="form-group">
                     <label for="item-photo">Item Photo URL</label>
                     <input type="text" class="form-control" id="item-photo"
                         placeholder="Enter a URL for the photo of your item">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="alert-div" id="user-alert"></div>
+                <div class="form-group">
+                    <label for="item-username">Your Username</label>
+                    <input type="text" class="form-control" id="item-username"
+                        placeholder="Enter a unique username for yourself">
+                </div>
+                <button type="submit" class="btn btn-primary" id="submitItem">Submit</button>
             </form>
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/submitItem.js"></script>
