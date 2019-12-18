@@ -24,7 +24,15 @@ function initMap() {
 
 // eslint-disable-next-line no-unused-vars
 function codeAddress() {
-  var address = document.getElementById("address").value;
+  var streetAddress = $("#address-street").text();
+  streetAddress = streetAddress.substring(streetAddress.indexOf(":") + 2).trim();
+  var stateAddress = $("#address-state").text();
+  stateAddress = stateAddress.substring(stateAddress.indexOf(":") + 2).trim();
+
+  var address = streetAddress + ", " + stateAddress;
+  console.log(address);
+
+  // var address = document.getElementById("address").value;
   // eslint-disable-next-line prettier/prettier
   geocoder.geocode({ "address": address }, function(results, status) {
     if (status == "OK") {
@@ -39,3 +47,7 @@ function codeAddress() {
     }
   });
 }
+
+$(document).ready(function() {
+  codeAddress();
+});
