@@ -1,6 +1,5 @@
 // Get references to page elements
 var $bidList = $("#bid-list");
-var currentBidder;
 
 var getBids = function(itemId) {
   return $.ajax({
@@ -45,6 +44,8 @@ var handleBidSubmit = function(event) {
   getItem(item.ItemId).then(function(data) {
     var bidderName = item.userName;
     var posterName = data.userName;
+
+    // If a bidder's username does not match the username of the owner they can bid on the item
     if (bidderName !== posterName) {
       putBid(item).then(function() {
         refreshBids();
