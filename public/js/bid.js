@@ -1,5 +1,6 @@
 // Get references to page elements
 var $bidList = $("#bid-list");
+var currentBidder;
 
 var getBids = function(itemId) {
   return $.ajax({
@@ -19,11 +20,17 @@ var putBid = function(bid) {
   });
 };
 
+var getItem = function(id) {
+  return $.ajax({
+    url: "api/item/" + id,
+    type: "GET"
+  });
+};
+
 // handleBidSubmit is called whenever we submit a new bid to the database.
 // Save the new bid to the db and refresh the list
 var handleBidSubmit = function(event) {
   event.preventDefault();
-  console.log("form is working");
 
   var item = {
     bidValue: $("#newBid")
@@ -34,6 +41,9 @@ var handleBidSubmit = function(event) {
       .trim(),
     ItemId: $("#item_id")[0].innerHTML
   };
+
+  currentBidder = $("#bid_username").val();
+  console.log(currentBidder);
 
   putBid(item).then(function() {
     refreshBids();
@@ -62,6 +72,10 @@ function refreshBids() {
     $bidList.empty();
     $bidList.append($bids);
   });
+}
+
+function checkBidder() {
+
 }
 
 $(document).ready(function() {
