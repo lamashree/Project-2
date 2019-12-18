@@ -8,6 +8,13 @@ module.exports = function(app) {
     });
   });
 
+  // Load items page and pass in an item by id
+  app.get("/api/item/:id", function(req, res) {
+    db.Items.findOne({ where: { id: req.params.id } }).then(function(dbItem) {
+      res.json(dbItem);
+    });
+  });
+
   // Create a new item
   app.post("/api/items", function(req, res) {
     db.Items.create(req.body).then(function(dbItem) {
@@ -16,7 +23,7 @@ module.exports = function(app) {
   });
 
   // Delete an item by id
-  app.delete("/api/items/:id", function(req, res) {
+  app.delete("/api/item/:id", function(req, res) {
     db.Items.destroy({ where: { id: req.params.id } }).then(function(dbItem) {
       res.json(dbItem);
     });
