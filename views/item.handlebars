@@ -4,22 +4,28 @@
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">Item</h5>
+          <img class="photo" src={{Items.itemPhoto}} width="400px">
           <p><strong>ID</strong>: <span id="item_id">{{Items.id}}</span></p>
           <p><strong>Name</strong>: {{Items.itemName}}</p>
           <p><strong>Category</strong>: {{Items.itemCategory}}</p>
-          <p><strong>State</strong>: {{Items.itemState}}</p>
+          <p><strong>Item State</strong>: {{Items.itemState}}</p>
           <p><strong>Price</strong>: {{Items.itemPrice}}</p>
+          <p id="address-street"><strong>Street Address</strong>: {{Items.addressStreet}}</p>
+          <p id="address-state"><strong>State</strong>: {{Items.addressState}}</p>
           <p><strong>Description:</strong> {{Items.itemDescription}}</p>
+          <div id="map" style="width: 320px; height: 480px;"></div>
           <br>
           <p>Please enter your username.</p>
           <input type="text" id="bid_username"><br>
           <p>Please enter your bid.</p>
           <input type="text" id="newBid">
           <button type="submit" id="submitBid" class="btn btn-primary"> Submit Bid </button>
-          <img class="photo" src={{Items.itemPhoto}} width="400px">
           <p><a href="/">← Back To Home</a></p>
         </div>
       </div>
+      <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+      <p><a href="/chat">chat</a></p>
     </div>
   </div>
 </div>
@@ -37,3 +43,8 @@
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/bid.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script async defer <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTbS7SNpGMxfTjkNT-8yiuRJ4S7QZ51K4&callback=initMap" async
+  defer></script>
+<script src="../js/maps.js"></script>

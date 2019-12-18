@@ -38,6 +38,12 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1]
       }
+    },
+    addressStreet: {
+      type: DataTypes.STRING
+    },
+    addressState: {
+      type: DataTypes.STRING
     }
   });
 
