@@ -25,9 +25,6 @@ follow following steps for Installation of app in your local machine.
 ### For logic
 - Javascript
 - jquery
-### libraries
-- getbootstarp
-- jquery
 
 ## Contributors
 - **Jessica Sills**
