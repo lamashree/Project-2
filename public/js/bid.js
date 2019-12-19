@@ -116,7 +116,6 @@ $(document).on("click", ".deleteBid", function(event) {
     // If a bidder's username does not match the username of the owner they can bid on the item
     if (username === posterName || username === bidderName) {
       deleteBid(bidId).then(function(data) {
-        alert("Bid deleted!");
         refreshBids();
       });
     } else {
