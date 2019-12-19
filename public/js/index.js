@@ -6,6 +6,12 @@ var API = {
       type: "GET"
     });
   },
+  getItem: function(id) {
+    return $.ajax({
+      url: "/api/item/" + id,
+      type: "GET"
+    });
+  },
   deleteItem: function(id) {
     return $.ajax({
       url: "api/item/" + id,
@@ -99,8 +105,20 @@ var deleteButton = function() {
     .parent()
     .attr("data-id");
 
-  API.deleteItem(deleteId).then(function() {
-    refreshItems();
+  API.getItem(deleteId).then(function(data) {
+    var user = prompt("Please enter your username");
+    var posterName = data.userName;
+
+    // If a bidder's username does not match the username of the owner they can bid on the item
+    if (user === posterName) {
+      API.deleteItem(deleteId).then(function() {
+        refreshItems();
+      });
+    } else {
+      alert(
+        "You are the owner of this item and therefore cannot delete this item."
+      );
+    }
   });
 };
 
