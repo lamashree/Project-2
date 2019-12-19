@@ -40,10 +40,31 @@ module.exports = function(app) {
     });
   });
 
+  // Delete a bid by id
+  app.delete("/api/bids/:id", function(req, res) {
+    db.Bids.destroy({ where: { id: req.params.id } }).then(function(dbItem) {
+      res.json(dbItem);
+    });
+  });
+
   // Get all bids for an item
   app.get("/api/items/:id/bids", function(req, res) {
-    db.Bids.findAll({ where: { ItemId: req.params.id } }).then(function(dbBids) {
+    db.Bids.findAll({
+      where: {
+        ItemId: req.params.id
+      },
+      order: [["bidValue", "DESC"]]
+    }).then(function(dbBids) {
       res.json(dbBids);
     });
+  });
+
+  // Update an item
+  app.put("/api/items/:id/sold", function(req, res) {
+    db.Items.update({ itemSold: true }, { where: { id: req.params.id } }).then(
+      function(dbItem) {
+        res.json(dbItem);
+      }
+    );
   });
 };

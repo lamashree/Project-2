@@ -12,7 +12,11 @@
         </div>
         <div class="col-md-6">
           <div class="card-body" data-id="{{this.id}}">
+            {{#if this.itemSold}}
+            <h5 class="card-title"><a href="item/{{this.id}}">{{this.itemName}} (SOLD)</a></h5>
+            {{else}}
             <h5 class="card-title"><a href="item/{{this.id}}">{{this.itemName}}</a></h5>
+            {{/if}}
             <p class="card-text my-0">${{this.itemPrice}}</p>
             <p class="card-text text-muted"><i>{{this.itemCategory}}</i></p>
             <button class="btn btn-danger delete">x</a>
