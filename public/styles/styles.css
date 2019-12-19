@@ -1,3 +1,94 @@
+/* HOMEPAGE */
+.navbar-brand {
+  margin: 0;
+  font-family: 'Caveat', cursive;
+}
+
+h2 {
+  color: green;
+}
+
+li {
+  padding: 0 20px;
+  list-style: none;
+}
+
+a:link {
+  color: green;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ff6347;
+}
+
+#home {
+  height: 650px;
+  background-image: url(../images/shop.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+#sale-title {
+  position: absolute;
+  top: 300px;
+  right: 350px;
+  font-size: 48px;
+  color: #ff6347;
+  text-shadow: 0.5px 0.5px 1px black;
+}
+
+#items, #item-card {
+  background-image: url(../images/gray.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#item-list {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-body {
+  text-align: left;
+}
+
+.card {
+  margin: 5px;
+}
+
+.card-img {
+  height: 100%;
+}
+
+
+
+
+/* ITEM PAGE */
+.photo-div, .info-div {
+  display: inline-block;
+}
+
+/* POST PAGE */
+#post-form {
+  padding: 20px;
+}
+
+#item-container, #post-container {
+  padding: 20px;
+  background-image: url(../images/soft.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#current-bid, #bid-item {
+  padding: 25px 0;
+}
 /*
 #map {
   height: 100%;
@@ -41,65 +132,3 @@ width: 40px;
 background: red;
 width: 300px;} 
 */
-
-.navbar-brand {
-  margin: 0;
-  font-family: 'Caveat', cursive;
-}
-
-h2 {
-  color: green;
-}
-
-li {
-  padding: 0 20px;
-  list-style: none;
-}
-
-a:link {
-  color: green;
-}
-
-a:hover {
-  text-decoration: none;
-  color: #ff6347;
-}
-
-#home {
-  height: 650px;
-  background-image: url(../images/shop.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: -1;
-}
-
-#sale-title {
-  position: absolute;
-  top: 300px;
-  right: 350px;
-  font-size: 48px;
-  color: #ff6347;
-  text-shadow: 0.5px 0.5px 1px black;
-}
-
-#items {
-  margin: 0;
-  background-image: url(../images/texture.jpeg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#item-list {
-  padding: 20px;
-}
-
-.card-columns {
-  display: inline-block;
-}
-
-.card {
-  margin: 5px;
-}

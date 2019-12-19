@@ -1,22 +1,30 @@
-<div class="container">
+<div class="container-fluid" id="item-container">
   <div class="row">
-    <div class="col-8 offset-2">
+    <div class="col-6" style="margin: 0 auto">
       <div class="card mt-4">
-        <div class="card-body">
+        <div class="card-body" id="item-card">
           {{#if Items.itemSold}}
           <h2 class="card-title">This item is SOLD</h2>
           {{/if}}
-          <h5 class="card-title">Item</h5>
-          <img class="photo" src={{Items.itemPhoto}} width="400px">
-          <p><strong>ID</strong>: <span id="item_id">{{Items.id}}</span></p>
-          <p><strong>Name</strong>: {{Items.itemName}}</p>
-          <p><strong>Category</strong>: {{Items.itemCategory}}</p>
-          <p><strong>Item State</strong>: {{Items.itemState}}</p>
-          <p><strong>Price</strong>: {{Items.itemPrice}}</p>
-          <p id="address-street"><strong>Street Address</strong>: {{Items.addressStreet}}</p>
-          <p id="address-state"><strong>State</strong>: {{Items.addressState}}</p>
-          <p><strong>Description:</strong> {{Items.itemDescription}}</p>
-          <div id="map" style="width: 320px; height: 480px;"></div>
+          <h5 class="card-title" style="text-align: center">Item</h5>
+          <div class="row item-div" style="margin: 0 auto">
+            <div class="col-6 photo-div">
+              <img class="photo" src={{Items.itemPhoto}} width="300px">
+            </div>
+            <div class="col-4 offset-1 info-div">
+              <p><strong>ID</strong>: <span id="item_id">{{Items.id}}</span></p>
+              <p><strong>Name</strong>: {{Items.itemName}}</p>
+              <p><strong>Category</strong>: {{Items.itemCategory}}</p>
+              <p><strong>Item State</strong>: {{Items.itemState}}</p>
+              <p><strong>Price</strong>: {{Items.itemPrice}}</p>
+              <p id="address-street"><strong>Street Address</strong>: {{Items.addressStreet}}</p>
+              <p id="address-state"><strong>State</strong>: {{Items.addressState}}</p>
+              <p><strong>Description:</strong> {{Items.itemDescription}}</p>
+            </div>
+          </div>
+          <div class="row" style="margin: 0 auto">
+            <div id="map" style="width: 100%; height: 420px; padding: 20px"></div>
+          </div>
           <br>
           <p><a href="/">← Back To Home</a></p>
         </div>
@@ -25,8 +33,8 @@
     </div>
   </div>
 </div>
-<br>
-<div class="container my-4">
+
+<div class="container my-4" id="bid-item">
   <div class="row">
     <div class="col-8 offset-2">
       <h3 class="m-0">Bid On This Item</h3>
@@ -67,8 +75,8 @@
     </div>
   </div>
 </div>
-<br>
-<div class="container my-4">
+
+<div class="container my-4" id="current-bid">
   <div class="row">
     <div class="col-8 offset-2">
       <h3 class="m-0">Current Bids</h3>
