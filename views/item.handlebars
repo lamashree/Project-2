@@ -3,6 +3,9 @@
     <div class="col-8 offset-2">
       <div class="card mt-4">
         <div class="card-body">
+          {{#if Items.itemSold}}
+          <h2 class="card-title">This item is SOLD</h2>
+          {{/if}}
           <h5 class="card-title">Item</h5>
           <img class="photo" src={{Items.itemPhoto}} width="400px">
           <p><strong>ID</strong>: <span id="item_id">{{Items.id}}</span></p>
@@ -34,6 +37,19 @@
     <div class="col-8 offset-2">
       <form>
         <div class="form-row align-items-center">
+          {{#if Items.itemSold}}
+          <div class="col-auto">
+            <label class="sr-only" for="bid_username">Username</label>
+            <input type="text" class="form-control mb-2" id="bid_username" placeholder="Enter your username" readonly>
+          </div>
+          <div class="col-auto">
+            <label class="sr-only" for="newBid">Bid</label>
+            <input type="text" class="form-control mb-2" id="newBid" placeholder="Enter your bid amount" readonly>
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-2" id="submitBid" disabled>Submit Bid</button>
+          </div>
+          {{else}}
           <div class="col-auto">
             <label class="sr-only" for="bid_username">Username</label>
             <input type="text" class="form-control mb-2" id="bid_username" placeholder="Enter your username">
@@ -45,6 +61,7 @@
           <div class="col-auto">
             <button type="submit" class="btn btn-primary mb-2" id="submitBid">Submit Bid</button>
           </div>
+          {{/if}}
         </div>
       </form>
     </div>

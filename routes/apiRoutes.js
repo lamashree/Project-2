@@ -47,4 +47,13 @@ module.exports = function(app) {
       res.json(dbBids);
     });
   });
+
+  // Update an item
+  app.put("/api/items/:id/sold", function(req, res) {
+    db.Items.update({ itemSold: true }, { where: { id: req.params.id } }).then(
+      function(dbItem) {
+        res.json(dbItem);
+      }
+    );
+  });
 };
