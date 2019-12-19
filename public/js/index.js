@@ -36,9 +36,13 @@ var refreshItems = function() {
         "data-id": item.id
       });
 
-      var cardText = $("<a>")
-        .text(item.itemName)
-        .attr("href", "/item/" + item.id);
+      var cardText = $("<a>").attr("href", "/item/" + item.id);
+
+      if (item.itemSold) {
+        cardText.text(item.itemName + " (SOLD)");
+      } else {
+        cardText.text(item.itemName);
+      }
 
       var cardTitle = $("<h5>")
         .addClass("card-title")
