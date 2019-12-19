@@ -5,18 +5,22 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
   <title>Cajarilla</title>
 </head>
 
 <body>
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="/">Cajarilla Marketplace</a>
+    <div class="row" id="link">
+      <li><a href="/post-item">Post an Item</a></li>
+      <li><a href="/login">Login</a></li>
+    </div>
+    <a class="navbar-brand" href="/"><h2>Cajarilla Marketplace</h2></a>
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </nav>
-  <br>
   {{{body}}}
 </body>
 

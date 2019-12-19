@@ -1,30 +1,23 @@
-<div id="home">
-  <div class="container-fluid" id="nav">
-    <div class="row" id="link">
-      <li><a href="/post-item">Post an Item</a></li>
-      <li><a href="/profiles">User Profiles</a></li>
-      <li><a href="/login">Login</a></li>
-    </div>
-  </div>
+<div class="container-fluid" id="home">
+  <p id="sale-title">Items for Sale</p>
 </div>
 
-<div class="container" id="sale-title">
-  <div class="row">
-    <h1>Items for Sale</h1>
-  </div>
-</div>
-
-<div class="container">
+<div class="container-fluid" id="items">
   <div class="card-columns" id="item-list">
     {{#each Items}}
-    <div class="card" style="max-width: 250px">
-      <img src={{this.itemPhoto}} class="card-img-top" alt="item-photo" style="max-width: auto">
-      <div class="card-body" data-id="{{this.id}}">
-        <h5 class="card-title"><a href="item/{{this.id}}">{{this.itemName}}</a></h5>
-        <p class="card-text my-0">${{this.itemPrice}}</p>
-        <p class="card-text text-muted"><i>{{this.itemCategory}}</i></p>
-        <a href="#" button class="btn btn-warning btn-sm profile">Profile</a>
-        <button class="btn btn-danger btn-sm delete">x</a>
+    <div class="card" style="max-width: 400px;">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <img src={{this.itemPhoto}} class="card-img" alt="item-photo">
+        </div>
+        <div class="col-md-6">
+          <div class="card-body" data-id="{{this.id}}">
+            <h5 class="card-title"><a href="item/{{this.id}}">{{this.itemName}}</a></h5>
+            <p class="card-text my-0">${{this.itemPrice}}</p>
+            <p class="card-text text-muted"><i>{{this.itemCategory}}</i></p>
+            <button class="btn btn-danger delete">x</a>
+          </div>
+        </div>
       </div>
     </div>
     {{/each}}

@@ -24,8 +24,12 @@ module.exports = function(app) {
 
   // Delete an item by id
   app.delete("/api/item/:id", function(req, res) {
-    db.Items.destroy({ where: { id: req.params.id } }).then(function(dbItem) {
-      res.json(dbItem);
+    // Delete bids for item first before deleting item
+    db.Bids.destroy({ where: { ItemId: req.params.id } }).then(function() {
+      console.log("Bids have been deleted");
+      db.Items.destroy({ where: { id: req.params.id } }).then(function(dbItem) {
+        res.json(dbItem);
+      });
     });
   });
 

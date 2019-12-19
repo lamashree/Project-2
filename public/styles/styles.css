@@ -1,8 +1,12 @@
+/*
 #map {
   height: 100%;
   width: 400px;
 }
+*/
+
 /* Optional: Makes the sample page fill the window. */
+/*
 html, body {
   height: 100%;
   margin: 0;
@@ -35,4 +39,67 @@ html, body {
   #pac-input { height: 50px;
 width: 40px;
 background: red;
-width: 300px;}
+width: 300px;} 
+*/
+
+.navbar-brand {
+  margin: 0;
+  font-family: 'Caveat', cursive;
+}
+
+h2 {
+  color: green;
+}
+
+li {
+  padding: 0 20px;
+  list-style: none;
+}
+
+a:link {
+  color: green;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ff6347;
+}
+
+#home {
+  height: 650px;
+  background-image: url(../images/shop.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+#sale-title {
+  position: absolute;
+  top: 300px;
+  right: 350px;
+  font-size: 48px;
+  color: #ff6347;
+  text-shadow: 0.5px 0.5px 1px black;
+}
+
+#items {
+  margin: 0;
+  background-image: url(../images/texture.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#item-list {
+  padding: 20px;
+}
+
+.card-columns {
+  display: inline-block;
+}
+
+.card {
+  margin: 5px;
+}
