@@ -38,7 +38,12 @@ module.exports = function(app) {
 
   // Get all bids for an item
   app.get("/api/items/:id/bids", function(req, res) {
-    db.Bids.findAll({ where: { ItemId: req.params.id } }).then(function(dbBids) {
+    db.Bids.findAll({
+      where: {
+        ItemId: req.params.id
+      },
+      order: [["bidValue", "DESC"]]
+    }).then(function(dbBids) {
       res.json(dbBids);
     });
   });

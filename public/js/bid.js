@@ -1,5 +1,5 @@
 // Get references to page elements
-var $bidList = $("#bid-list");
+var bidList = $("#bid-list");
 
 var getBids = function(itemId) {
   return $.ajax({
@@ -60,26 +60,97 @@ var handleBidSubmit = function(event) {
   });
 };
 
+$(document).on("click", ".acceptBid", function(event) {
+  event.preventDefault();
+
+  var bidId = $(this).attr("data-id");
+  var username = $("#username-bid-input-" + bidId).val().trim();
+
+  var itemId = $("#item_id")[0].innerHTML;
+
+  getItem(itemId).then(function(data) {
+    var posterName = data.userName;
+
+    // If a bidder's username does not match the username of the owner they can bid on the item
+    if (username === posterName) {
+      alert("Bid accepted!");
+    } else {
+      alert(
+        "You are not the owner of this item and therefore cannot accept bids on it."
+      );
+    }
+  });
+});
+
+$(document).on("click", ".deleteBid", function(event) {
+  event.preventDefault();
+
+  var bidId = $(this).attr("data-id");
+  var username = $("#username-bid-input-" + bidId).val().trim();
+  var bidderName = $("#username-bid-" + bidId).text();
+
+  var itemId = $("#item_id")[0].innerHTML;
+
+  getItem(itemId).then(function(data) {
+    var posterName = data.userName;
+
+    // If a bidder's username does not match the username of the owner they can bid on the item
+    if (username === posterName || username === bidderName) {
+      alert("Bid deleted!");
+    } else {
+      alert(
+        "You are not the owner of this item, nor the owner of the bid, therefore you may not delete it."
+      );
+    }
+  });
+});
+
 function refreshBids() {
   var itemId = $("#item_id")[0].innerHTML;
   getBids(itemId).then(function(data) {
-    var $bids = data.map(function(bids) {
-      var $userName = $("<p>").text(bids.userName);
+    var bids = data.map(function(bids) {
+      var row = $("<div class='row mb-3'></div>");
+      row.attr("data-id", bids.id);
+      var colOne = $("<div class='col-2'></div>");
+      var colTwo = $("<div class='col-2'></div>");
+      var colThree = $("<div class='col-8'></div>");
 
-      var $bidValue = $("<p>").text(bids.bidValue);
+      var userName = $("<p id='username-bid-" + bids.id + "'>").text(bids.userName);
+      var bidValue = $("<p>").text(bids.bidValue);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": bids.id
-        })
-        .append($userName);
-      $li.append($bidValue);
+      colOne.append(userName);
+      colTwo.append(bidValue);
 
-      return $li;
+      var acceptForm = $("<form>");
+      var formWrapper = $("<div class='form-row align-items-center'>");
+
+      var usernameEntry = $("<div class='col-auto'>");
+      var usernameEntryInput = $("<input type='text' class='form-control' id='username-bid-input-" + bids.id + "' placeholder='Enter your username'></input>");
+      usernameEntry.append(usernameEntryInput);
+
+      var buttonAccept = $("<div class='col-auto'>");
+      var buttonDelete = $("<div class='col-auto'>");
+      var acceptBidButton = $("<button type='submit' class='btn btn-success acceptBid' data-id='" + bids.id + "'>Accept Bid</button>");
+      var deleteBidButton = $("<button type='submit' class='btn btn-danger deleteBid' data-id='" + bids.id + "'>Delete Bid</button>");
+
+      buttonAccept.append(acceptBidButton);
+      buttonDelete.append(deleteBidButton);
+
+      formWrapper.append(usernameEntry);
+      formWrapper.append(buttonAccept);
+      formWrapper.append(buttonDelete);
+      acceptForm.append(formWrapper);
+
+      colThree.append(acceptForm);
+
+      row.append(colOne);
+      row.append(colTwo);
+      row.append(colThree);
+
+      return row;
     });
-    $bidList.empty();
-    $bidList.append($bids);
+    bidList.empty();
+    bidList.append(bids);
   });
 }
 

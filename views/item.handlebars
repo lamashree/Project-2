@@ -15,35 +15,57 @@
           <p><strong>Description:</strong> {{Items.itemDescription}}</p>
           <div id="map" style="width: 320px; height: 480px;"></div>
           <br>
-          <p>Please enter your username.</p>
-          <input type="text" id="bid_username"><br>
-          <p>Please enter your bid.</p>
-          <input type="text" id="newBid">
-          <button type="submit" id="submitBid" class="btn btn-primary"> Submit Bid </button>
           <p><a href="/">← Back To Home</a></p>
         </div>
       </div>
-      <script src="https://code.jquery.com/jquery-2.2.4.js"
-        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-      <p><a href="/chat">chat</a></p>
+      {{!-- <p><a href="/chat">chat</a></p> --}}
     </div>
   </div>
 </div>
-<div class="container" id="bid-list">
-  {{#each Bids}}
+<br>
+<div class="container my-4">
   <div class="row">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{this.userName}}</h5>
-        <p class="card-text my-0">${{this.bidValue}}</p>
-      </div>
+    <div class="col-8 offset-2">
+      <h3 class="m-0">Bid On This Item</h3>
     </div>
   </div>
-  {{/each}}
+  <hr>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <form>
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label class="sr-only" for="bid_username">Username</label>
+            <input type="text" class="form-control mb-2" id="bid_username" placeholder="Enter your username">
+          </div>
+          <div class="col-auto">
+            <label class="sr-only" for="newBid">Bid</label>
+            <input type="text" class="form-control mb-2" id="newBid" placeholder="Enter your bid amount">
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-2" id="submitBid">Submit Bid</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+<br>
+<div class="container my-4">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h3 class="m-0">Current Bids</h3>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-8 offset-2" id="bid-list">
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/bid.js"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script async defer <script
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTbS7SNpGMxfTjkNT-8yiuRJ4S7QZ51K4&callback=initMap" async
   defer></script>
