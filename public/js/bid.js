@@ -33,6 +33,16 @@ var sellItem = function(id) {
   });
 };
 
+var deleteBid = function(id) {
+  return $.ajax({
+    headers: {
+      "Content-Type": "application/json"
+    },
+    type: "DELETE",
+    url: "/api/bids/" + id
+  });
+};
+
 // handleBidSubmit is called whenever we submit a new bid to the database.
 // Save the new bid to the db and refresh the list
 var handleBidSubmit = function(event) {
@@ -81,7 +91,6 @@ $(document).on("click", ".acceptBid", function(event) {
     // If a bidder's username does not match the username of the owner they can bid on the item
     if (username === posterName) {
       sellItem(itemId).then(function(data) {
-        alert("Item sold!");
         location.reload();
       });
     } else {
@@ -106,7 +115,10 @@ $(document).on("click", ".deleteBid", function(event) {
 
     // If a bidder's username does not match the username of the owner they can bid on the item
     if (username === posterName || username === bidderName) {
-      alert("Bid deleted!");
+      deleteBid(bidId).then(function(data) {
+        alert("Bid deleted!");
+        refreshBids();
+      });
     } else {
       alert(
         "You are not the owner of this item, nor the owner of the bid, therefore you may not delete it."
