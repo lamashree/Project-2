@@ -13,11 +13,12 @@ Follow following steps for Installation of app in your local machine.
 5. npm install and other dependencies
 6. Or click on the link at the first line of the page.
 
-	### Font-end
+## Technologies Use.
+1. ### Font-end
 - HTML, handlebars, CSS.	- HTML,handlebars, CSS.
 
 
-### Back-end	### Back-end
+2. ### Back-end
 - **Node.js**
 - **NPM packages**
 - **Npm package socket.io***
@@ -26,13 +27,13 @@ Follow following steps for Installation of app in your local machine.
 - **Sequelize** to creating database tables	- **Sequelize** to creating database tables
 - **Mysql** for database	- **Mysql** for database
 - **Google Maps API** for location of the items.
-### For logic	### For logic
-- Javascript	- **Javascript**
-- jquery	- **jquery AJAX()**
-### Project tools
+3. ### For logic	
+- **Javascript**
+- **jquery AJAX()**
+4. ### Project tools
 - **GitHub** for merging and managing Project.
 - **Heroku** for devployment of the Project.
-### Materials 
+5. ### Materials 
  - **slack**
  - **Google Slide**
  - **Google.fu**
@@ -48,16 +49,21 @@ Follow following steps for Installation of app in your local machine.
 After our team brainstroming session we came in conclusion to build **Cajarilla online Marketplace**. Our team members had feeling that after developing this application  we will have enough understaing of online marketplace. All do online purchasing, ordering, and searching for the product that we need. So, as our team thought why not developing something that already exist and has large scope in the market. This application have bullied targeting to people of the society. 
 
 ## Areas for future improvements
-## Areas for future improvements
-- 	-  Login and User Authentication
-- Socket.io chat feature
+- Login and User Authentication
+-  Socket.io chat feature
 - Picture file upload from local machine.
 - price matching/searching
 - Timer foe bids
 - User posting of purchase review and picture.
 - Search functionality for items
 - More validation for application.
+      
+## Step and Screenshort 
 
+ 
 
+ ![Philadelphia's Magic Gardens. This place was so cool!](/public/images/Image1.png)
 
-## Screenshort
+ ![Philadelphia's Magic Gardens. This place was so cool!](/public/images/image2.png)
+
+ ![Philadelphia's Magic Gardens. This place was so cool!](/public/images/image3.png)
