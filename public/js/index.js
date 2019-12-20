@@ -6,6 +6,12 @@ var API = {
       type: "GET"
     });
   },
+  getItem: function(id) {
+    return $.ajax({
+      url: "/api/item/" + id,
+      type: "GET"
+    });
+  },
   deleteItem: function(id) {
     return $.ajax({
       url: "api/item/" + id,
@@ -20,15 +26,26 @@ var refreshItems = function() {
     var items = data.map(function(item) {
       var card = $("<div>").attr({
         class: "card",
-        style: "max-width: 250px"
+        style: "max-width: 400px"
+      });
+
+      var row = $("<div>").attr({
+        class: "row no-gutters"
+      });
+
+      var colImage = $("<div>").attr({
+        class: "col-md-6"
       });
 
       var imgURL = item.itemPhoto;
       var image = $("<img>").attr({
         src: imgURL,
-        class: "card-img-top",
-        alt: "item-photo",
-        style: "max-width: auto"
+        class: "card-img",
+        alt: "item-photo"
+      });
+
+      var colText = $("<div>").attr({
+        class: "col-md-6"
       });
 
       var cardBody = $("<div>").attr({
@@ -58,21 +75,19 @@ var refreshItems = function() {
         .addClass("card-text text-muted")
         .append(italics);
 
-      var profileBtn = $("<button>")
-        .addClass("btn btn-warning btn-sm profile")
-        .text("Profile");
-
       var deleteBtn = $("<button>")
-        .addClass("btn btn-danger btn-sm delete")
+        .addClass("btn btn-danger delete")
         .text("x");
 
       cardBody.append(cardTitle);
       cardBody.append(price);
       cardBody.append(category);
-      cardBody.append(profileBtn);
       cardBody.append(deleteBtn);
-      card.append(image);
-      card.append(cardBody);
+      colText.append(cardBody);
+      colImage.append(image);
+      row.append(colText);
+      row.append(colImage);
+      card.append(row);
 
       return card;
     });
@@ -90,8 +105,20 @@ var deleteButton = function() {
     .parent()
     .attr("data-id");
 
-  API.deleteItem(deleteId).then(function() {
-    refreshItems();
+  API.getItem(deleteId).then(function(data) {
+    var user = prompt("Please enter your username");
+    var posterName = data.userName;
+
+    // If a bidder's username does not match the username of the owner they can bid on the item
+    if (user === posterName) {
+      API.deleteItem(deleteId).then(function() {
+        refreshItems();
+      });
+    } else {
+      alert(
+        "You are the owner of this item and therefore cannot delete this item."
+      );
+    }
   });
 };
 
