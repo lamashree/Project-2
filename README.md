@@ -64,9 +64,13 @@ After our team brainstroming session we came in conclusion to build **Cajarilla 
 This is our application home page. proceed to the home page of the application with valid above given URL.
  ![home page](/public/images/Image1.png)
 ### Items for sale
- Scroll down to the homePage. you can see items for sale page.
+ Scroll down to the homePage. you can see items for sale page. <br>
  ![items for sale page](/public/images/image2.png)
 
 ### item view page
-User can get more information of the item by clicking on item that will take you to the  **Cajarilla* item page. item page provides all the information about item that are currently viewing. it has also function to show where the item is located. user can view prevous bid for the item if there are any bid for that item. user also able to summit bid.
+User can get more information of the item by clicking on item that will take you to the  **Cajarilla* item page. item page provides all the information about item that are currently viewing. it has also function to show where the item is located. user can view prevous bid for the item if there are any bid for that item. user also able to summit bid.<br>
  ![item iformatiom page](/public/images/image3.png)
+
+### post an item
+This apllication is developed for people in the society. User can easily post any item they want to sale. click on **Post an Item** button from the home page. Fill out all the form feild and click on the **submmit** button to post an item for sale. <br>
+ ![post an item page](/public/images/image3.jpg)
