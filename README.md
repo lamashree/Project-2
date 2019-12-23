@@ -58,12 +58,15 @@ After our team brainstroming session we came in conclusion to build **Cajarilla 
 - Search functionality for items
 - More validation for application.
       
-## Step and Screenshort 
+### Step and Screenshort 
 
- 
+ ### Homepage
+This is our application home page. proceed to the home page of the application with valid above given URL.
+ ![home page](/public/images/Image1.png)
+### Items for sale
+ Scroll down to the homePage. you can see items for sale page.
+ ![items for sale page](/public/images/image2.png)
 
- ![Philadelphia's Magic Gardens. This place was so cool!](/public/images/Image1.png)
-
- ![Philadelphia's Magic Gardens. This place was so cool!](/public/images/image2.png)
-
- ![Philadelphia's Magic Gardens. This place was so cool!](/public/images/image3.png)
+### item view page
+User can get more information of the item by clicking on item that will take you to the  **Cajarilla* item page. item page provides all the information about item that are currently viewing. it has also function to show where the item is located. user can view prevous bid for the item if there are any bid for that item. user also able to summit bid.
+ ![item iformatiom page](/public/images/image3.png)
