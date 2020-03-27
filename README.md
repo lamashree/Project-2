@@ -1,4 +1,4 @@
-# Project-2
+# Cajarilla Marketplace
 Click the following link to visit Cajarilla marketplace. <br>
 [Cajarilla online marketplace](https://cajarilla-marketplace.herokuapp.com/)
 ## Overview
