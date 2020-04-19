@@ -121,6 +121,5 @@ var deleteButton = function() {
     }
   });
 };
-
 // Add event listener for the delete button
 $("#item-list").on("click", ".delete", deleteButton);

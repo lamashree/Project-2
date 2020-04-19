@@ -1,13 +1,11 @@
 // Get references to page elements
-var bidList = $("#bid-list");
-
+var bidList = $("#bid-list")
 var getBids = function(itemId) {
   return $.ajax({
     url: "/api/items/" + itemId + "/bids",
     type: "GET"
   });
 };
-
 var putBid = function(bid) {
   return $.ajax({
     headers: {
@@ -18,21 +16,18 @@ var putBid = function(bid) {
     data: JSON.stringify(bid)
   });
 };
-
 var getItem = function(id) {
   return $.ajax({
     url: "/api/item/" + id,
     type: "GET"
   });
 };
-
 var sellItem = function(id) {
   return $.ajax({
     url: "/api/items/" + id + "/sold",
     type: "PUT"
   });
 };
-
 var deleteBid = function(id) {
   return $.ajax({
     headers: {
