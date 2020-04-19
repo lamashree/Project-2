@@ -27,7 +27,6 @@ var handleItemSubmit = function(event) {
   var userState = $("#item-user-state").val();
   var photo = $("#item-photo").val().trim();
   var user = $("#item-username").val().trim();
-
   var valid = validateForm(
     name,
     description,
@@ -37,7 +36,6 @@ var handleItemSubmit = function(event) {
     photo,
     user
   );
-
   if (valid) {
     console.log("Got into valid next steps.");
     var item = {

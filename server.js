@@ -28,20 +28,19 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
+var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
-var server = require('http').Server(app);
-// var io = require('socket.io')(server);
 var users = { }
-// var io = require('socket.io')(3000);
-// var http = require("http");
-io.on("connection", socket =>{
-    // socket.emit("chat-message", "Hello")
-    socket.on("new-user", name =>{
+io.on("connection", function(socket) {
+    socket.emit("chat-message", "Hello")
+    socket.on("new-user", name=> {
+console.log(name)
         users[socket.id] - name
         socket.broadcast.emit("user-connected")
     })
   
     socket.on("sent-chat-message", message)
+    console.log(message)
     socket.broadcast.emit("chat-message", {message:message, name:user[socket.id]})
 
     socket.on("disconnect", () =>{
